@@ -58,8 +58,3 @@ Enjoy the Quran verse and smooth gradient backgrounds as you check the time and 
 📝 License
 
 This project is open-source and available under the MIT License
-.
-
-👉 Now both apps (Bible & Quran) will have harmonized READMEs with matching structure but distinct spiritual focus.
-
-Would you like me to also create a side-by-side comparison table (Bible vs Quran app) for the README root repo if you plan to host them together as a collection?
