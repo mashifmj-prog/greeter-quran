@@ -1,4 +1,4 @@
-// -------------------- Greeter Quran App --------------------
+// -------------------- Greeter Quran App (revised) --------------------
 
 // ----- User Name -----
 let userName = "";
@@ -22,36 +22,52 @@ const verses = [
   "Surah Al-Ikhlas 112:1-4 - 'Say, He is Allah, One, Allah, the Eternal Refuge. He neither begets nor is born, nor is there to Him any equivalent.'"
 ];
 
+// ----- Daily Quotes -----
+const dailyQuotes = [
+  "Trust in Allah; He is the best disposer of affairs.",
+  "With hardship comes ease — remain patient and hopeful.",
+  "Prayer and remembrance bring peace to the heart.",
+  "Give charity even a little — it lightens the soul.",
+  "Seek knowledge; it guides the believer's steps.",
+  "Forgive others and seek forgiveness from your Lord.",
+  "Be grateful — gratitude increases blessings."
+];
+
 // ----- Helper Functions -----
 function getRandomVerse() {
   const index = Math.floor(Math.random() * verses.length);
   return verses[index];
 }
 
-// ----- Update Greeting -----
+function getDailyQuote() {
+  const today = new Date();
+  return dailyQuotes[today.getDate() % dailyQuotes.length];
+}
+
+// ----- Update Greeting (and Verse + Daily Quote) -----
 function updateGreeting() {
   const hour = new Date().getHours();
   let greeting, icon, newBackground;
 
   if (hour >= 5 && hour < 12) {
     greeting = "Good Morning";
-    icon = "🌞"; // fresh
+    icon = "🌞";
     newBackground = "morning";
   } else if (hour >= 12 && hour < 15) {
     greeting = "Good Day";
-    icon = "🌻"; // fresh
+    icon = "🌻";
     newBackground = "day";
   } else if (hour >= 15 && hour < 18) {
     greeting = "Good Afternoon";
-    icon = "☕"; // fresh
+    icon = "☕";
     newBackground = "afternoon";
   } else if (hour >= 18 && hour < 22) {
     greeting = "Good Evening";
-    icon = "🌆"; // fresh
+    icon = "🌆";
     newBackground = "evening";
   } else {
     greeting = "Good Night";
-    icon = "🌙"; // fresh
+    icon = "🌙";
     newBackground = "night";
   }
 
@@ -64,7 +80,9 @@ function updateGreeting() {
 
   document.getElementById("icon").innerText = icon;
   document.getElementById("text").innerText = displayGreeting;
-  document.getElementById("verse").innerText = getRandomVerse();
+
+  // Show verse + daily quote
+  document.getElementById("verse").innerText = `${getRandomVerse()}\n\nDaily Quote: ${getDailyQuote()}`;
 }
 
 // ----- Clock -----
@@ -103,5 +121,5 @@ updateClock();
 updateDate();
 
 setInterval(updateClock, 1000);
-setInterval(updateGreeting, 60000);
+setInterval(updateGreeting, 60000); // refresh greeting/verse every minute (verse rotates randomly)
 setInterval(updateDate, 60000);
