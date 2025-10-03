@@ -35,23 +35,23 @@ function updateGreeting() {
 
   if (hour >= 5 && hour < 12) {
     greeting = "Good Morning";
-    icon = "🌅";
+    icon = "🌞"; // changed
     newBackground = "morning";
   } else if (hour >= 12 && hour < 15) {
     greeting = "Good Day";
-    icon = "☀️";
+    icon = "🌻"; // changed
     newBackground = "day";
   } else if (hour >= 15 && hour < 18) {
     greeting = "Good Afternoon";
-    icon = "🌤️";
+    icon = "☕"; // changed
     newBackground = "afternoon";
   } else if (hour >= 18 && hour < 22) {
     greeting = "Good Evening";
-    icon = "🌇";
+    icon = "🌆"; // changed
     newBackground = "evening";
   } else {
     greeting = "Good Night";
-    icon = "🌙";
+    icon = "⭐"; // changed
     newBackground = "night";
   }
 
